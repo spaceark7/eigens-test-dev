@@ -1,5 +1,5 @@
 import { Layout } from 'antd'
-import { Header } from 'antd/es/layout/layout'
+import { Content, Header } from 'antd/es/layout/layout'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import NewsPage from './presentation/pages/NewsPage'
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -12,8 +12,9 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <NewsContextProvider>
           <Layout className=''>
-            <Header></Header>
-            <NewsPage />
+            <Content>
+              <NewsPage />
+            </Content>
           </Layout>
         </NewsContextProvider>
 
