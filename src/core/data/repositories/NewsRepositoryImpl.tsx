@@ -15,6 +15,22 @@ class NewsRepositoryImpl implements NewsRepository {
     return news
   }
 
+  getNewsByCategory = async (
+    category: string,
+    page: number = 1,
+    pageSize: number = 5
+  ): Promise<News[]> => {
+    const newsResponse = await this.newsService.getNewsByCategory(
+      category,
+      page,
+      pageSize
+    )
+    const news = newsResponse.map((json: any, index) =>
+      createNewsFromJson(json)
+    )
+    return news
+  }
+
   searchNews = async (keyword: string): Promise<News[]> => {
     const newsResponse = await this.newsService.searchNews(keyword)
     const news = newsResponse.map((json: any) => createNewsFromJson(json))

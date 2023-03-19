@@ -4,7 +4,7 @@ import { GetNews } from '../../../application'
 import NewsQueryResult from '../shared/NewsQueryResult'
 
 export const useGetNews = (): NewsQueryResult => {
-  const { data, isLoading, error, isSuccess, refetch } = useQuery(
+  const { data, isLoading, error, isSuccess, refetch, isFetching } = useQuery(
     'news',
     async () => {
       const res = new GetNews()
@@ -22,6 +22,7 @@ export const useGetNews = (): NewsQueryResult => {
     isLoading,
     error,
     success: isSuccess,
+    isFetching,
   }
 
   return newsQueryResult

@@ -14,8 +14,12 @@ class NewsService implements NewsRepository {
     )
     return news
   }
-  async getNewsByCategory(category: string, page: number = 1): Promise<News[]> {
-    const url = `${this.BASE_URL}/top-headlines?country=us&category=${category}&pageSize=10&page=${page}&apiKey=${this.API_KEY}`
+  async getNewsByCategory(
+    category: string,
+    page: number = 1,
+    pageSize: number = 15
+  ): Promise<News[]> {
+    const url = `${this.BASE_URL}/top-headlines?country=us&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=${this.API_KEY}`
     const response = await axios.get(url)
     const news = response.data.articles.map((json: any) =>
       createNewsFromJson(json)

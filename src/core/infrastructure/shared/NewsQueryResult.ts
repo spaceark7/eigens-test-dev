@@ -5,6 +5,7 @@ interface NewsQueryResult {
   isLoading: boolean
   error: any
   success: boolean
+  isFetching: boolean | undefined
 }
 
 export default NewsQueryResult

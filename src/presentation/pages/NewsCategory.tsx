@@ -1,19 +1,19 @@
 import { Space } from 'antd'
-
+import { useParams } from 'react-router-dom'
 import NewsBanner from '../components/banner/NewsBanner'
-
 import NewsList from '../components/newsList/NewsList'
 
-const NewsPage = () => {
+const NewsCategory = () => {
+  const { category } = useParams<{ category: string }>()
   return (
     <div className='site-layout-content'>
-      <NewsBanner />
+      {category === 'home' && <NewsBanner />}
       <Space />
-      <h2>More News</h2>
+      <h2>{category} News</h2>
 
       <NewsList />
     </div>
   )
 }
 
-export default NewsPage
+export default NewsCategory
