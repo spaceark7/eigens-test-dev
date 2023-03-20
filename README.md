@@ -31,7 +31,6 @@ Rekaman Layar Halaman utama
 - [ANTD UI Framework](https://ant.design/)
 - [React Query](https://react-query-v3.tanstack.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [React Router DOM](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 - [React Router DOM](https://reactrouter.com/en/main)
 
 ## 🔗 Links
