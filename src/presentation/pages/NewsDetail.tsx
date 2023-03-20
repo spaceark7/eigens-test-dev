@@ -21,14 +21,30 @@ export default function NewsDetail() {
       <Button type='text' onClick={handleBack} icon={<ArrowLeftOutlined />}>
         Back
       </Button>
+      <div className='py-4'>
+        <h1 className='text-4xl m-0 font-bold'>{detail.title}</h1>
+        <div className='flex items-center space-x-8 text-gray-600 font-medium'>
+          <p className='text-sm'>
+            Published At : {detail.publishedAt.toLocaleDateString()}
+          </p>
+          <p>Author : {detail.author}</p>
+        </div>
+      </div>
+
       <img
         className='max-h-72 object-contain w-full'
         src={detail.urlToImage}
         alt={detail.title}
       />
-      <h1 className='text-2xl font-bold'>{detail.title}</h1>
+
       <p className='text-sm'>{detail.description}</p>
       <>{detail.content}</>
+      <div className='mt-4'>
+        <p>Read more this article at</p>
+        <a href={detail.url} target='_blank' rel='noreferrer'>
+          {detail.url}
+        </a>
+      </div>
     </article>
   )
 }

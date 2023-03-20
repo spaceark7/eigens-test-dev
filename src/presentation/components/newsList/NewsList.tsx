@@ -7,7 +7,8 @@ import { useGetNewsByCategory } from '../../../core/infrastructure/hooks/useGetN
 
 function NewsList() {
   const { category } = useParams<{ category: string }>()
-  const param: any = category === 'home' ? 'technology' : category
+  const param: any =
+    category === undefined || category === 'home' ? 'technology' : category
 
   const [page, setPage] = useState(1)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -78,7 +79,7 @@ function NewsList() {
           </div>
         )}
       </section>
-      {success && (
+      {success && news.length > 0 && (
         <div className='w-full flex justify-center py-6'>
           <Pagination
             defaultCurrent={page}

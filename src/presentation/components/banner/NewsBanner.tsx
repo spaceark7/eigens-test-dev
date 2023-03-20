@@ -38,7 +38,7 @@ const NewsBanner = () => {
         {news.map((item) => (
           <Link
             key={item.id}
-            to={`detail/${item.title.replace('.com', '')}`}
+            to={`/detail/${item.title.replace('.com', '')}`}
             state={{
               query: news.filter((i) => i.title.includes(item.title))[0],
             }}
