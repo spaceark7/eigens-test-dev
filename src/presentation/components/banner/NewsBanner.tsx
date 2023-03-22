@@ -35,35 +35,38 @@ const NewsBanner = () => {
         autoplay
         effect='scrollx'
       >
-        {news.map((item) => (
-          <Link
-            key={item.id}
-            to={`/detail/${item.title.replace('.com', '')}`}
-            state={{
-              query: news.filter((i) => i.title.includes(item.title))[0],
-            }}
-          >
-            <Card
-              hoverable
-              key={item.id}
-              className='bg-blue-800 w-full h-[60vh]'
-              cover={
-                <img
-                  className='w-full h-full object-cover'
-                  alt={item.title}
-                  src={item?.urlToImage}
-                />
-              }
-            >
-              <Card.Meta
-                className='text-white absolute bottom-0 p-2  w-full left-0 bg-white bg-opacity-60'
-                style={{ color: 'white' }}
-                title={item.title}
-                description={item.description}
-              />
-            </Card>
-          </Link>
-        ))}
+        {news.map(
+          (item) =>
+            (item.urlToImage !== null || item.urlToImage !== '') && (
+              <Link
+                key={item.id}
+                to={`/detail/${item.title.replace('.com', '')}`}
+                state={{
+                  query: news.filter((i) => i.title.includes(item.title))[0],
+                }}
+              >
+                <Card
+                  hoverable
+                  key={item.id}
+                  className='bg-blue-800 w-full h-[60vh]'
+                  cover={
+                    <img
+                      className='w-full h-full object-cover'
+                      alt={item.title}
+                      src={item?.urlToImage}
+                    />
+                  }
+                >
+                  <Card.Meta
+                    className='text-white absolute bottom-0 p-2  w-full left-0 bg-white bg-opacity-60'
+                    style={{ color: 'white' }}
+                    title={item.title}
+                    description={item.description}
+                  />
+                </Card>
+              </Link>
+            )
+        )}
       </Carousel>
     </>
   )
